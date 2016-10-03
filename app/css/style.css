@@ -1,0 +1,547 @@
+ 
+md-toolbar h1 {
+  font-size: 1.250em;
+  font-weight: 400;
+  margin: auto;
+}
+.face {
+  --border-radius: 30px;
+  --border: 1px solid #ddd;
+  display: inline-block;
+  margin: 4px 16px; 
+  vertical-align: middle;
+  width: 24px;
+}
+.main{
+	width 20%;
+}
+.container{
+	background-color: #f9fafa;
+}
+.content-wrapper {
+--  position: relative;
+}
+
+.account-options md-select-label{
+	font-size:0.9em;
+}
+.manage-list-header {
+	height:50px;
+	color: gray;
+}
+
+.manage-list-filter md-select{
+ 	margin-top:0px;
+ 	padding-right:10px;
+ 	padding-left: 10px;
+}
+
+.manage-actions {
+	--width:170px;
+}
+
+.error {
+	margin: 0 0 50px;
+	--width: 800px;
+}
+
+.error h1 {
+	font-size : 4em;
+	font-weight : 200;
+}
+
+.message {
+	border: 1px solid #959595;
+	padding:10px;	
+	font-size: 0.9em;
+}
+
+/*h2{
+  font-size: 2.5em;
+  letter-spacing: 0.1em;
+  color: rgba(45, 138, 192, 1);
+  text-shadow: 1px 1px 1px rgba(255,255,255,0.6);
+}
+
+h2 span{
+  display: block;
+  margin-top: 0.5em;
+  font-size: 0.6em;
+  font-weight: normal;
+  letter-spacing: 0em;
+  text-shadow: none;
+}*/
+
+.meta{
+  color: rgba(69,54,37,0.6);
+  font-size: 0.6em;
+  font-style: italic;
+  letter-spacing: 0.25em;
+  padding-top: 0.9em;
+}
+
+.meta span{
+  text-transform: capitalize;
+  font-style: normal;
+  color: rgba(69,54,37,0.8);
+}	
+
+.body p{
+  -moz-column-count: 2;
+  -moz-column-gap: 1em;
+  -webkit-column-count: 2;
+  -webkit-column-gap: 1em;
+  column-count: 2;
+  column-gap: 1em;
+  line-height: 1.5em;
+  color: rgb(69,54,37);
+}
+
+.body p:first-child{
+  font-size: 1.25em;
+  font-style: italic;
+  -moz-column-count: 1;
+  -webkit-column-count: 1;
+  column-count: 1;
+  letter-spacing: 0.1em;
+}
+.body p:first-child:first-line{
+  font-weight: bold;
+}
+
+date{
+  color: rgba(69,54,37,0.6);
+  font-size: 0.75em;
+  font-style: italic;
+  letter-spacing: 0.25em;
+  border-top: 1px solid rgba(69,54,37,0.2);
+  display: block;
+  padding-top: 0.5em;
+  margin-top: 2em;
+}
+
+h5{
+  font-size: 1.0em;
+ -- letter-spacing: 0.1em;
+  color: rgba(45, 138, 192, 1);
+  text-shadow: 1px 1px 1px rgba(255,255,255,0.6);
+}
+
+h5 span{
+  display: block;
+  margin-top: 0.5em;
+  font-size: 0.8em;
+  font-weight: normal;
+  letter-spacing: 0em;
+  text-shadow: none;
+}
+
+h6{
+  font-size: 1.0em;
+ -- letter-spacing: 0.1em;
+  text-shadow: 1px 1px 1px rgba(255,255,255,0.6);
+}
+
+h6 span{
+  display: block;
+  margin-top: 0.5em;
+  font-size: 0.8em;
+  font-weight: normal;
+ -- letter-spacing: 0em;
+  text-shadow: none;
+}
+
+.tabletext{
+	--font-size:0.8em;
+	font-weight:500;
+}
+
+.tableheader{
+	--color: rgba(45, 138, 192, 1);
+	color: #888888;
+
+}
+.tableheader span{
+	color:red;
+}
+.editwindowheader{
+	color: rgba(45, 138, 192, 1);
+
+}
+
+.viewcontent{
+	color: rgba(45, 138, 192, 1);
+
+}
+.viewcontent span{
+	color:black;
+}
+
+  
+.menuitem{
+	height: 8px;
+	font-size: 12px;
+	padding-bottom: 1.0em;
+	margin: 0px 0px 6px 0px;
+}
+
+.menuitem span{
+	font-size:0.7em;
+	color:red;
+	background-color: #96d7e8;
+}
+.menubutton{
+	text-transform: none;
+	width:70px;
+}
+.selected {
+	background-color: rgba(158, 158, 158, 0.2);
+}
+
+
+md-sidenav, 
+md-sidenav.md-locked-open, 
+md-sidenav.md-closed.md-locked-open-add-active {
+    min-width: 100px !important;
+    width: 100px !important;
+    max-width: 100px !important;
+}
+
+/* Truncate text */
+  .ngTruncateToggleText {
+        color: red;
+        font-size: 90%;
+        font-style: italic;
+    }
+
+    
+.pointer {
+    cursor: pointer;
+}
+
+.g6 {
+	color: #757575;
+}
+
+/*********************************************************************************************************************************/
+/************************************************ NOTICEBOARD ********************************************************************/
+.commentBox {
+	border: 1px solid  rgba(0, 0, 0, 0.12);
+}
+.newComment {
+	border: 1px solid  rgba(0, 0, 0, 0.12);
+	margin-top : 15px;
+}
+
+.newComment div {
+    margin-left: 5px;	
+}
+
+.newComment img {
+    margin-top: 10px;   
+}
+.nb-list-card {
+	padding: 0px;
+}
+.nb-manage-list {
+	--border: 1px solid rgba(0, 0, 0, 0.067);
+}
+.nb-subject {
+	font-weight:bold;
+	font-size: 14px;
+	padding-left:10px;
+}
+.nb-detail {
+	font-size: 14px;
+}
+
+.nb-manage-row {
+    padding-left:15px;
+}
+
+.profile {
+    border-radius:50%;
+    height:28px;
+    width: 28px;
+    margin
+}
+
+.notice_expand{
+    background-color: #f2f2f2;  
+}
+.notice_collapse{
+    background-color: none;
+}
+.notice_hover{
+    background-color: #e8a9e9;
+}
+
+.noticecomment{
+    padding:20px;
+    cursor: pointer;
+}
+.noticelist{
+    
+}
+
+.noticeBox {
+	border: 1px solid  rgba(0, 0, 0, 0.12);
+	margin-bottom: 15px;
+}
+
+.commentarea{
+    border-style: solid;
+    border-color:blue;
+}
+
+/*********************************************************************************************************************************/
+/************************************************END OF  NOTICEBOARD CSS********************************************************************/
+.login-button{
+      background-color: #e4e5e8;
+  }
+  
+.warning{
+	    border-style: solid;
+	    border-color: orange;
+		padding: 20px;
+		width: 70%;
+		color: orange;
+		text-align: center;
+ }
+ 
+ .error{
+	 border-style: solid;
+	 border-color: red;
+     padding: 20px;
+	 width: 70%;
+	 color: red;
+	 text-align: center;
+ }
+ 
+ .info{
+	 	color:green;
+	     }
+	     
+
+
+.resident_hover{
+	background-color: #d0e7f4;
+}
+
+.hittheme{
+	background-color: #e4e5e8;
+}
+
+.homepagebutton{
+	background-color: #edbf18;
+}
+
+homepagebutton:hover{
+	background-color: green;
+}
+
+
+/***********************************************Start ContactUS **********************************************/
+.contactUS {
+    position: relative;
+    background: #f5f4f0;
+    overflow: hidden;
+}
+.contactUS:before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity:0.2;
+    background-image: url( "../img/ContactUSbg.png")!important;
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+.contactUS h1 {
+    padding: 50px;
+    text-align: center;
+    z-index: 2;
+    position: relative;
+    color: #fff;
+} 
+article {
+  background: #fff;
+  padding: 15px;
+}
+
+hit_button{
+	background-color: red;
+	z-index1002;
+}
+
+.contactUS button{
+	
+}
+.contactUStext{
+	color: black;
+}
+.glowing-border {
+    border: 2px solid #ebb625;
+    border-radius: 7px;
+}
+
+.glowing-border:focus { 
+    outline: none;
+    border-color: #eec01a;
+    box-shadow: 0 0 10px #bc930c;
+}
+/***********************************************End ContactUS **********************************************/
+
+/***********************************************Start hitUsers **********************************************/
+.hitUsers {
+    position: relative;
+    background: orange;
+    overflow: hidden;
+    width:100%;
+}
+.hitUsers:before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity:0.2;
+    background-image: url( "../img/hivebg.png")!important;
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+
+.hivecount{
+	height: 200px;
+	width:200px;
+	border-style:solid;
+	border-color: orange;
+	background-color: orange;
+	border-radius: 25%;
+}
+
+/***********************************************End hitUsers **********************************************/
+
+/***********************************************Start hitFeatures **********************************************/
+.hitFeatures {
+    position: relative;
+    background: white;
+    overflow: hidden;
+    width:100%;
+}
+.hitFeatures:before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity:0.2;
+    background-image: url( "../img/hivebg.png")!important;
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+
+.hivefeature{
+	height: 150px;
+	width:150px;
+	border-style:solid;
+	border-color: orange;
+	background-color: orange;
+	border-radius: 25%;
+}
+hivefeature:hover{
+	height: 500px;
+	background-color: black;
+}
+
+/***********************************************End hitFeatures **********************************************/
+
+.background {
+    position: fixed;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    margin-top: 50px;
+    background: #edbf18;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    margin-top: 300px;
+    background: blue;
+}
+
+nav {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    height: 50px;
+    width: 100%;
+    background: black;
+}
+
+/********************************************Dashboard ****************************************/
+
+.nbupdate{
+	height: 75px;
+	width:75px;
+	border-style:solid;
+	border-color: orange;
+	background-color: orange;
+	border-radius: 10%;
+}
+nbupdate:hover{
+	height: 500px;
+	background-color: black;
+}
+.nbupdate p{
+	color: black;
+	font-size:12px;
+	
+}
+dbbutton{
+	width 20px;
+}
+
+.toolbartext{
+	color:black;
+	font-size: 14px;
+}
+
+.dashboardtext{
+	color:#5b98cd;
+	font-size: 15px;
+}
+
+/***********************************Dashboard end ********************************************/

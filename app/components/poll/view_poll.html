@@ -1,0 +1,56 @@
+<md-dialog aria-label="view poll">
+  <md-content class="md-padding">
+  		<div layout="column">
+  			<div class="md-title">{{poll.subject}}</div>
+  		    </br>
+  		    <md-card>
+	    		<md-card-content>
+					<div><span ng-bind-html=textpoll ></span></div>
+						<div>
+						  <form ng-submit="submit()">
+
+
+<div>
+  <form ng-submit="submit()">
+     <p>Selected Value: <span class="radioValue">{{ data.optiongroup }}</span></p>
+    <md-radio-group ng-model="data.optiongroup" class="md-primary">
+        <md-radio-button ng-repeat="d in radioData"
+                         ng-value="d.value"
+                         ng-disabled=" d.isDisabled "
+                         ng-class="{'md-align-top-left': $index==1}" >
+            {{ d.label }}<br/>
+          <span class="ipsum"
+                ng-if="$index == 1">
+            Duis placerat lectus et justo mollis, nec sodales orci congue. Vestibulum semper non urna ac suscipit.
+            Vestibulum tempor, ligula id laoreet hendrerit, massa augue iaculis magna,
+            sit amet dapibus tortor ligula non nibh.
+          </span>
+        </md-radio-button>
+    </md-radio-group>
+    <p>
+      <md-button class="md-raised" ng-click="addItem()" type="button">Add</md-button>
+      <md-button class="md-raised" ng-click="removeItem()" type="button">Remove</md-button>
+    </p>
+    <hr />
+  </form>
+</div>
+
+						   </form>
+						</div>
+	    		</md-card-content>
+  		    </md-card>
+  		</div>
+  		
+    <div class="md-actions" layout="row">
+    	<md-button class="md-icon-button" ng-click="print(poll)" aria-label="Print"> 
+           	<md-icon md-font-set="material-icons" ng-style="{color:'blue' , 'font-size':'24px', height:'24px'}" >print</md-icon>
+           	<md-tooltip>Print poll</md-tooltip>
+         </md-button>
+		 <div flex></div>     
+	     <md-button class="md-raised" ng-click="close()" type="button">
+	     <md-icon md-font-set="material-icons" ng-style="{color:'blue' , 'font-size':'24px', height:'24px'}" >close</md-icon>Close
+	    </md-button>
+  	</div>
+  </md-content>
+ </md-dialog>
+  

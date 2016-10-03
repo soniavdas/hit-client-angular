@@ -1,0 +1,526 @@
+	<div layout="row">
+		<div  flex="100" >
+					<div layout="row" layout-align="space-between start">
+						<div flex> </div>
+						<div layout="row">
+							<p> <md-icon md-font-set="material-icons" ng-style="{color:'blue' , 'font-size':'24px', height:'24px'}" >attach_money </md-icon> <span style="font-size:12px">0 </span> &nbsp</p>
+							<p> <md-icon md-font-set="material-icons" ng-style="{color:'red' , 'font-size':'24px', height:'24px'}" >notifications </md-icon> <span style="font-size:12px">0 </span> &nbsp</p>
+						</div>
+					</div>
+					<div layout="row" layout-align="space-between start">
+					</div>
+		</div>
+	</div>
+
+		<md-tabs md-dynamic-height>
+			<md-tab label="Resident">
+			<md-tab-body>
+
+<div layout="column" flex class="content-wrapper" id="primary-col">
+	<md-content class="md-padding " class="hitbackground" layout="column" style="background-color: #e4e5e8">   
+
+
+ 	<div layout=row>
+		<div layout="column" flex="40">
+	 	<div ng-controller="noticeBoardController">
+	 			<md-card>
+				<md-card-content>
+					<div  layout="row" layout-align="center center">
+						<p class="dashboardtext" flex>	<md-icon md-font-set="material-icons"  ng-click="CreateNotice=1" ng-style="{color:'purple' , 'font-size':'32px', height:'32px'}" >announcement</md-icon> 
+						&nbsp
+						Notice Board ({{noticeList.length}})</p>
+					
+					<md-icon md-font-set="material-icons" ng-click="editdiag($event, null)" ng-style="{color:'black' , 'font-size':'24px', height:'24px'}" >add_circle</md-icon> &nbsp
+					</div>
+				
+					<div layout="column">
+						<div layout="row">
+							<div flex=70>
+							{{noticeList[0].subject}}
+							</div>
+							<div>
+								{{noticeList[0].dateStatusUpdated | date:"MMM dd, yyyy"}}
+							</div>
+						</div>
+						<md-divider></md-divider>
+						<div layout="row">
+							<div flex=70>
+							{{noticeList[1].subject}}
+							</div>
+							<div>
+								{{noticeList[1].dateStatusUpdated | date:"MMM dd, yyyy"}}
+							</div>
+						</div>
+
+						<md-divider></md-divider>
+						<div layout="row">
+							<div flex=70>
+							{{noticeList[2].subject}}
+							</div>
+							<div>
+								{{noticeList[2].dateStatusUpdated | date:"MMM dd, yyyy"}}
+							</div>
+						</div>
+						
+						<md-divider></md-divider>
+						<div layout="row" layout-align="end end">
+							<a ui-sref="default.main.noticeboard">View All </a>
+						</div>
+
+					</div>
+				
+				</md-card-content>
+				</md-card>
+		</div>
+	 			<md-card>
+				<md-card-content>
+				
+				<div  layout="row" layout-align="center center" ng-controller="serviceRequestController">
+						<p class="dashboardtext" flex>	<md-icon md-font-set="material-icons"   ng-style="{color:'red' , 'font-size':'32px', height:'32px'}" >help</md-icon> 
+						&nbsp
+						ServiceRequest(0)</p>
+					
+					<md-icon md-font-set="material-icons"   ng-click="edit($event, null)" ng-style="{color:'black' , 'font-size':'24px', height:'24px'}" >add_circle</md-icon> &nbsp
+					</div>
+					
+					<div layout="column">
+				  	<div> <p> No Service Requested </p> </div>
+				  	<div ng-hide="1">
+						<div layout="row">
+							<div flex=80>
+							Request 1
+							</div>
+							<div>
+								date
+							</div>
+						</div>
+						<md-divider></md-divider>
+						<div layout="row">
+							<div flex=80>
+							Request 1
+							</div>
+							<div>
+								date
+							</div>
+						</div>
+
+						<md-divider></md-divider>
+						<div layout="row">
+							<div flex=80>
+							Notice 1
+							</div>
+							<div>
+								date
+							</div>
+						</div>
+						
+						<md-divider></md-divider>
+						<div layout="row" layout-align="end end">
+							<p> View All </p>
+						</div>
+				  	</div>
+					</div>
+				
+				</md-card-content>
+				</md-card>
+
+ 	</div>
+ 	
+ 				 	<div flex="40" layout="column">
+	 				 	<div>
+	 			<md-card>
+				<md-card-content>
+				
+				
+				<div  layout="row" layout-align="center center">
+						<p class="dashboardtext" flex>	<md-icon md-font-set="material-icons"   ng-style="{color:'purple' , 'font-size':'32px', height:'32px'}" >chat_bubble_outline</md-icon> 
+						&nbsp
+						Discussion Board (0)</p>
+					
+					<md-icon md-font-set="material-icons"  ng-hide="1"  ng-style="{color:'black' , 'font-size':'24px', height:'24px'}" >add_circle</md-icon> &nbsp
+					</div>
+				  	<div>
+					  	<p> Discussion Board is empty </p>
+				  	</div>
+					<div ng-hide="1" layout="column">
+						<div layout="row">
+							<div flex=80>
+							Discussion 1
+							</div>
+							<div>
+								date
+							</div>
+						</div>
+						<md-divider></md-divider>
+						<div layout="row">
+							<div flex=80>
+							Discussion 1
+							</div>
+							<div>
+								date
+							</div>
+						</div>
+
+						<md-divider></md-divider>
+						<div layout="row">
+							<div flex=80>
+							Discussion 1
+							</div>
+							<div>
+								date
+							</div>
+						</div>
+						<md-divider></md-divider>
+						<div layout="row" layout-align="end end">
+							<p> View All </p>
+						</div>
+					</div>
+				
+				</md-card-content>
+				</md-card>
+		</div>
+
+ 		 	<div flex="20">
+	 		<md-card>
+			<md-card-content>
+				<h5>At a Glance  <md-divider md-inset></md-divider> </h5>
+				<div layout="row">
+					<div layout="row" layout-align="space-around center" layout-padding >
+						<div class="nbupdate" layout="column" layout-align="center center">
+							<md-icon md-font-set="material-icons" ng-style="{color:'black' , 'font-size':'28px', height:'28px'}" >poll </md-icon>
+		
+							<p>Poll(0)</p>
+						</div>
+					</div>
+					<div layout="row" layout-align="space-around center" layout-padding >
+						<div  class="nbupdate" layout="column" layout-align="center center">
+							<md-icon md-font-set="material-icons" ng-style="{color:'black' , 'font-size':'28px', height:'28px'}" >help </md-icon>
+							<p>Requests(0)</p>
+						</div>
+					</div>
+				</div>
+			</md-card-content>
+			</md-card>
+		</div>
+ 	</div>
+
+ 	<div flex="20">
+	 	<md-card>
+	 	<md-card-content>
+	 	<div layout="column">
+	 	<img  ng-src="img/ad.png" style="width:100%;height:100%">
+	 	<h2> HiveInTown Advertisement Board </h2>
+	 	</div>
+	 	</md-card-content>
+	 	</md-card>
+ 	</div>
+	</div>
+
+   	</md-content>
+ </div>
+</md-tab-body>
+ </md-tab>
+ 			
+ 			<md-tab label="Admin">
+ 			<md-tab-body>
+ 				<md-content class="md-padding " layout="column" style="background-color: #e4e5e8">   
+ 			<div layout="column">
+ 			<div layout="row">
+
+		 	<div flex="25">
+		 			<md-card>
+					<md-card-content>
+						<div  layout="row" layout-align="center center">
+							<p class="dashboardtext" flex>	<md-icon md-font-set="material-icons"  ng-click="CreateDiscussion=1" ng-style="{color:'orange' , 'font-size':'32px', height:'32px'}" >attach_money</md-icon> 
+							&nbsp
+							Dues</p>
+						</div>
+						
+						<md-divider></md-divider>
+					
+					  	<div layout="column">
+						  	<div layout="row">
+							  	<p flex="90">
+							  		Apartments
+							  	</p>
+							  	<p flex="10">
+								  	0
+							  	</p>
+						  	</div>
+						  	
+						  	<div layout="row">
+							  	<p flex="90">
+								  	Amount
+							  	</p>
+							  	<p flex="10">
+								  	0
+							  	</p>
+						  	</div>
+					  	</div>
+						<div layout="row" layout-align="space-around center">
+							<p class="dashboardtext"> Forms </p>
+							<p class="dashboardtext"> ViewAll</p>
+						</div>
+					</md-card-content>
+					</md-card>
+			</div>
+		
+			<div flex="25">
+	 			<md-card>
+				<md-card-content>
+					<div  layout="row" layout-align="center center">
+						<p class="dashboardtext" flex>	<md-icon md-font-set="material-icons"  ng-click="CreateDiscussion=1" ng-style="{color:'orange' , 'font-size':'32px', height:'32px'}" >airport_shuttle</md-icon> 
+						&nbsp
+						Movein/MoveOut</p>
+					</div>
+					
+					<md-divider></md-divider>
+				
+				  	<div layout="column">
+					  	<div layout="row">
+						  	<p flex="90">
+						  		MoveIn
+						  	</p>
+						  	<p flex="10">
+							  	0
+						  	</p>
+					  	</div>
+					  	
+					  	<div layout="row">
+						  	<p flex="90">
+							  	MoveOut
+						  	</p>
+						  	<p flex="10">
+							  	0
+						  	</p>
+					  	</div>
+				  	</div>
+					<div layout="row" layout-align="space-around center">
+						<p class="dashboardtext"> Forms </p>
+						<p class="dashboardtext"> ViewAll</p>
+					</div>
+				</md-card-content>
+				</md-card>
+			</div>
+
+
+		 	<div flex="25">
+		 			<md-card>
+					<md-card-content>
+						<div  layout="row" layout-align="center center">
+							<p class="dashboardtext" flex>	<md-icon md-font-set="material-icons"  ng-click="CreateDiscussion=1" ng-style="{color:'red' , 'font-size':'32px', height:'32px'}" >help</md-icon> 
+							&nbsp
+							ServiceRequest</p>
+						</div>
+						
+						<md-divider></md-divider>
+					
+					  	<div layout="column">
+						  	<div layout="row">
+							  	<p flex="90">
+							  		Pending
+							  	</p>
+							  	<p flex="10">
+								  	0
+							  	</p>
+						  	</div>
+						  	<div layout="row">
+							  	<p flex="90">
+								  	Ongoing
+							  	</p>
+							  	<p flex="10">
+								  	0
+							  	</p>
+						  	</div>
+						  	<div layout="row">
+							  	<p flex="90">
+								  	Resolved
+							  	</p>
+							  	<p flex="10">
+								  	0
+							  	</p>
+						  	</div>
+					  	</div>
+						<div layout="row" layout-align="space-around center">
+							<p class="dashboardtext"> Forms </p>
+							<p class="dashboardtext"> ViewAll</p>
+						</div>
+					</md-card-content>
+					</md-card>
+			</div>
+		
+			<div flex="25">
+			</div>
+ 			</div>
+ 			
+ 			<div layout="row">
+	 					 	<div flex="25">
+		 			<md-card>
+					<md-card-content>
+						<div  layout="row" layout-align="center center">
+							<p class="dashboardtext" flex>	<md-icon md-font-set="material-icons"  ng-click="CreateDiscussion=1" ng-style="{color:'blue' , 'font-size':'32px', height:'32px'}" >people</md-icon> 
+							&nbsp
+							Users</p>
+						</div>
+						
+						<md-divider></md-divider>
+					
+					  	<div layout="column">
+						  	<div layout="row">
+							  	<p flex="90">
+							  		Admin
+							  	</p>
+							  	<p flex="10">
+								  	0
+							  	</p>
+						  	</div>
+
+						  	<div layout="row">
+							  	<p flex="90">
+							  		Approved
+							  	</p>
+							  	<p flex="10">
+								  	0
+							  	</p>
+						  	</div>
+						  	
+						  	<div layout="row">
+							  	<p flex="90">
+								  	Requested
+							  	</p>
+							  	<p flex="10">
+								  	0
+							  	</p>
+						  	</div>
+					  	</div>
+						<div layout="row" layout-align="space-around center">
+							<p class="dashboardtext"> Forms </p>
+							<p class="dashboardtext"> ViewAll</p>
+						</div>
+					</md-card-content>
+					</md-card>
+			</div>
+
+		 	<div flex="25">
+		 			<md-card>
+					<md-card-content>
+						<div  layout="row" layout-align="center center">
+							<p class="dashboardtext" flex>	<md-icon md-font-set="material-icons"  ng-click="CreateDiscussion=1" ng-style="{color:'orange' , 'font-size':'32px', height:'32px'}" >important_devices</md-icon> 
+							&nbsp
+							Asset&Inventory</p>
+						</div>
+						
+						<md-divider></md-divider>
+					
+					  	<div layout="column">
+						  	<div layout="row">
+							  	<p flex="90">
+							  		Assests
+							  	</p>
+							  	<p flex="10">
+								  	0
+							  	</p>
+						  	</div>
+						  	
+						  	<div layout="row">
+							  	<p flex="90">
+								  	Inventory
+							  	</p>
+							  	<p flex="10">
+								  	0
+							  	</p>
+						  	</div>
+					  	</div>
+						<div layout="row" layout-align="space-around center">
+							<p class="dashboardtext"> Forms </p>
+							<p class="dashboardtext"> ViewAll</p>
+						</div>
+					</md-card-content>
+					</md-card>
+			</div>
+		 	<div flex="25">
+		 			<md-card>
+					<md-card-content>
+						<div  layout="row" layout-align="center center">
+							<p class="dashboardtext" flex>	<md-icon md-font-set="material-icons"  ng-click="CreateDiscussion=1" ng-style="{color:'purple' , 'font-size':'32px', height:'32px'}" >people_outline</md-icon> 
+							&nbsp
+							Meetings</p>
+						</div>
+						
+						<md-divider></md-divider>
+					
+					  	<div layout="column">
+						  	<div layout="row">
+							  	<p flex="90">
+							  		Open
+							  	</p>
+							  	<p flex="10">
+								  	0
+							  	</p>
+						  	</div>
+						  	
+						  	<div layout="row">
+							  	<p flex="90">
+								  	Closed
+							  	</p>
+							  	<p flex="10">
+								  	0
+							  	</p>
+						  	</div>
+					  	</div>
+						<div layout="row" layout-align="space-around center">
+							<p class="dashboardtext"> Forms </p>
+							<p class="dashboardtext"> ViewAll</p>
+						</div>
+					</md-card-content>
+					</md-card>
+			</div>
+ 			</div>
+ 			<div layout="row">
+	 					 	<div flex="25">
+		 			<md-card>
+					<md-card-content>
+						<div  layout="row" layout-align="center center">
+							<p class="dashboardtext" flex>	<md-icon md-font-set="material-icons"  ng-click="CreateDiscussion=1" ng-style="{color:'orange' , 'font-size':'32px', height:'32px'}" >card_travel</md-icon> 
+							&nbsp
+							Visitors</p>
+						</div>
+						
+						<md-divider></md-divider>
+					
+					  	<div layout="column">
+						  	<div layout="row">
+							  	<p flex="90">
+							  		Today
+							  	</p>
+							  	<p flex="10">
+								  	0
+							  	</p>
+						  	</div>
+						  	
+						  	<div layout="row">
+							  	<p flex="90">
+								  	ThisMonth
+							  	</p>
+							  	<p flex="10">
+								  	0
+							  	</p>
+						  	</div>
+					  	</div>
+						<div layout="row" layout-align="space-around center">
+							<p class="dashboardtext"> Forms </p>
+							<p class="dashboardtext"> ViewAll</p>
+						</div>
+					</md-card-content>
+					</md-card>
+			</div>
+
+ 			</div>
+ 			</div>
+ 				</md-content>
+
+ 			</md-tab-body>
+ 			</md-tab>
+		</md-tabs>
+ 
+       

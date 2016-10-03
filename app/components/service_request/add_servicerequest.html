@@ -1,0 +1,74 @@
+<md-dialog aria-label="edit serviceRequest" flex="70">
+  <md-content class="md-padding" flex="30">
+  	
+  	<div layout="row" layout-align="space-between center">
+  		<h3 class="editwindowheader">Create ServiceRequest </h3>
+  		<div>
+  					<md-icon md-font-set="material-icons"  ng-click="close()" ng-style="{color:'black' , 'font-size':'24px', height:'24px'}" >close</md-icon>
+  		</div>
+	</div>   
+  	
+  	  	<div>{{message}}</div>
+    <form name="serviceRequestForm">
+    <input type="hidden" name="serviceRequestId" ng-value="serviceRequest.serviceRequestId" />
+      <div layout="column">
+	      <md-input-container>
+		  	<label>Description</label>
+		  	<input ng-model="serviceRequest.subject" name="subject" type="text" required md-maxlength="50" minlength="4">
+		  	<div ng-messages="serviceRequestForm.subject.$error" ng-show="serviceRequestForm.subject.$dirty">
+      			<div ng-message="required">Required</div>
+      			<div ng-message="md-maxlength">You have exceeded maximum length for this field.</div>
+      			<div ng-message="minlength">You have not met this item's minimum length.</div>
+   		    </div>
+		  </md-input-container>
+		  
+	     </div>
+	  <div>
+ <div>
+      <div layout="row"  layout-align="space-around center">
+        <md-input-container>
+          <input ng-model="serviceRequest.details" name="details" data-ck-editor type="text" required md-maxlength="1000" minlength="4">
+          <div ng-messages="serviceRequestForm.details.$error" ng-show="serviceRequestForm.details.$dirty">
+      			<div ng-message="required">Required</div>
+      			<div ng-message="md-maxlength">You have exceeded maximum length for this field.</div>
+      			<div ng-message="minlength">You have not met this item's minimum length.</div>
+   		    </div>
+        </md-input-container>
+             <div layout="column" layou-align="space-around center">
+			 <md-select ng-model="status" placeholder="Status">
+        <md-option ng-repeat="status in statuslist" value="{{status}}">{{status}}</md-option>
+      </md-select>
+     <md-select ng-model="category" placeholder="Category">
+        <md-option ng-repeat="category in categorylist" value="{{category}}">{{category}}</md-option>
+      </md-select>
+      <md-select ng-model="serviceprovider" placeholder="ServiceProvider">
+        <md-option ng-repeat="serviceprovider in serviceproviderlist" value="{{serviceprovider}}">{{serviceprovider}}</md-option>
+      </md-select>
+    </div>
+  </div>
+
+	      <md-input-container>
+		  	<label>Comments</label>
+		  	<input ng-model="serviceRequest.subject" name="subject" type="text" required md-maxlength="50" minlength="4">
+		  	<div ng-messages="serviceRequestForm.subject.$error" ng-show="serviceRequestForm.subject.$dirty">
+      			<div ng-message="required">Required</div>
+      			<div ng-message="md-maxlength">You have exceeded maximum length for this field.</div>
+      			<div ng-message="minlength">You have not met this item's minimum length.</div>
+   		    </div>
+		  </md-input-container>
+
+      </div>
+
+
+    <div class="md-actions" layout="row">
+	     <div flex></div>
+	    
+	    <md-button class="md-raised" type="submit" ng-click="add(serviceRequest, 1)" 
+	    		ng-disabled="serviceRequestForm.$invalid" aria-label="Draft">
+	     	Report
+	     	<md-tooltip>Save as draft</md-tooltip>
+	    </md-button>
+  	</div>
+    </form>
+  </md-content>
+  </md-dialog>

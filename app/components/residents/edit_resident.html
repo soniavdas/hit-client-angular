@@ -1,0 +1,104 @@
+<md-dialog aria-label="resident dialog">
+  <md-content class="md-padding">
+  	<div layout="row">
+  		<h4 flex>{{title}}</h4>
+  		   <!--<md-menu md-offset="0 -5" ng-hide="user.isVerified">
+		      <md-button aria-label="edit resident menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">
+		        <md-icon md-menu-origin ng-style="{color:'blue'}" >more_vert</md-icon>
+		      </md-button>
+		     <md-menu-content width="4">
+		        <md-menu-item>
+		            <md-button ng-click="resend(user)"> 
+		            	<md-icon  md-menu-align-target ng-style="{color:'blue'}">email</md-icon>
+		            		Send Invite
+		            </md-button>
+		        </md-menu-item>
+		      </md-menu-content>  --> 
+		   </md-menu>
+  	</div>
+  	
+  	<div class="message" ng-show="message">{{message}}</div>
+    <form name="userForm" >
+    	<input type="hidden" name="userId" ng-value="user.userId" />
+      <div layout layout-sm="column">
+	      <md-input-container>
+		  	<label>Name</label>
+		  	<input ng-model="user.name" name="name" type="text" required md-maxlength="50" minlength="4">
+		  	<div ng-messages="userForm.name.$error" ng-show="userForm.name.$dirty">
+      			<div ng-message="required">This is a required field.</div>
+      			<div ng-message="md-maxlength">You have exceeded maximum length for this field.</div>
+      			<div ng-message="minlength">You have not met this field's minimum length</div>
+   		    </div>
+		  </md-input-container>
+    	<md-radio-group ng-model="user.role" layout="row">
+	      <md-radio-button value="ADMIN" >Admin</md-radio-button>
+	      <md-radio-button value="RESIDENT" >Resident</md-radio-button>
+   	 	</md-radio-group>
+      </div>
+     
+      <div layout layout-sm="column">
+        <md-input-container flex>
+          <label>Email</label>
+          <input ng-model="user.email" name="email" type="email" required md-maxlength="50" minlength="4" ng-disabled="editMode">
+          <div ng-messages="userForm.email.$error" ng-show="userForm.email.$dirty">
+      			<div ng-message="required">This is a required field.</div>
+      			<div ng-message="maxlength">You have exceeded maximum length for this field.</div>
+      			<div ng-message="minlength">You have not met this field's minimum length.</div>
+      			<div ng-message="email">Please enter a valid email address.</div>
+   		    </div>
+        </md-input-container>
+        <md-input-container flex>
+          <label>Contact</label>
+          <input ng-model="user.contactNum" name="contactNum" type="text" md-maxlength="20" >
+           <div ng-messages="userForm.contactNum.$error" ng-show="userForm.contactNum.$dirty">
+      			<div ng-message="md-maxlength">You have exceeded maximum length for this field.</div>
+      			<div ng-message="minlength">You have not met this field's minimum length.</div>
+   		    </div>
+        </md-input-container>
+      </div>
+      
+      <div layout layout-sm="column">
+      
+      
+        <md-input-container flex>
+          <label>Block</label>
+          <input ng-model="user.blockName"  name="blockName" required minlength="1" md-maxlength="40">
+          <div ng-messages="userForm.blockName.$error" ng-show="userForm.bio.$dirty">
+      			<div ng-message="required">This is a required field.</div>
+      			<div ng-message="md-maxlength">You have exceeded maximum length for this field.</div>
+      			<div ng-message="minlength">You have not met this field's minimum length.</div>
+   		    </div>
+        </md-input-container>
+        
+          <md-input-container flex>
+          <label>Apartment Num</label>
+          <input ng-model="user.apartmentNum" name="apartmentNum" type="text" required minlength="1" md-maxlength="40">
+          <div ng-messages="userForm.apartmentNum.$error" ng-show="userForm.apartmentNum.$dirty" >
+      			<div ng-message="required">This is a required field.</div>
+      			<div ng-message="md-maxlength">You have exceeded maximum length for this field.</div>
+      			<div ng-message="minlength">You have not met this field's minimum length.</div>
+   		    </div>
+        </md-input-container>
+      </div>
+      
+       <div layout layout-sm="column">
+        <md-input-container flex>
+          <label>Additional message for the user</label>
+          <textarea ng-model="customMessage"></textarea>
+        </md-input-container>
+      </div>
+      
+	    <div class="md-actions" layout="row">
+	    	<md-button ng-click="cancel()" type="button">
+		     	Cancel
+		    </md-button>
+		    <md-button class="md-primary md-raised" type="submit" ng-click="save(user)" ng-disabled="userForm.$invalid">
+		     	Save
+		    </md-button>
+		     
+	  	</div>
+    </form>
+  </md-content>
+  
+</md-dialog>
+

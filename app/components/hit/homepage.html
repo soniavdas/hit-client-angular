@@ -1,0 +1,222 @@
+<div style=" overflow:hidden">
+<md-toolbar   style="background-color:#f1dc73"> 
+<md-content md-scroll-shrink>
+	<div layout="column"   layout-align="center center">
+   		<div class="md-toolbar-tools"  style="width:95%" layout-align="center center"  flex>
+	      	<img src="img/logo.png"  style="height:62px;width: 130px ">
+	        <span flex></span>
+	     		<h1 ng-show="isLoggedIn">{{communityName}}</h1>   		
+	   		<span flex></span>
+	   		
+	   	   <md-button ng-if="!isLoggedIn" class="homepagebutton" ng-click="login()">LOGIN</md-button>
+	   	   <md-button ng-if="!isLoggedIn" class="homepagebutton" >CREATE</md-button>
+      	</div>
+	 <ui-view></ui-view>
+ </div>
+</md-content>
+</md-toolbar>
+</div>
+ <div layout="column" ng-hide="isLoggedIn" style="background-color:white" layout-align="space-between center" flex>
+				<md-button  class="md-raised md-primary md-fab"  aria-label="Add new resident">
+					<md-icon ng-style="{color:'white' , 'font-size':'24px', height:'24px'}" >person_add</md-icon>
+					<md-tooltip>Add new student</md-tooltip>
+				</md-button>
+  <md-content style="width:90%" class="md-padding" >
+	  	<md-content class="md-padding" >
+      			<div >
+					<img src="img/main.jpg" height="100%" width="100%">
+				</div>	
+				<md-button  class="md-raised md-primary md-fab"  aria-label="Add new resident">
+					<md-icon ng-style="{color:'white' , 'font-size':'24px', height:'24px'}" >person_add</md-icon>
+					<md-tooltip>Add new student</md-tooltip>
+				</md-button>
+            				<h2> HiveInTown
+	   				<span>Manage Community</span>
+				</h2>
+				
+				<div class="body">
+					<p>Our mission is to enable a safe and thriving community where members are well informed, effectively participate in community decision making, identify and resolve issues effectively, discuss and form ideas to better the community and its surroundings along with creating friendships, cooperating and exchanging information and ideas with one another without hindered by their limited time and, or knowledge of technology </p>
+				</div>
+
+				<div style="background-color:#9b9994" layout="column" layout-align="center space-around">
+					<div layout="row" layout-align="center center">
+				<h1 style="color: white"> Take a look of our features </h1>
+					</div>
+					<div>
+				<md-tabs md-dynamic-height>
+						<md-tab label="Communication">
+							 <md-tab-label><md-icon md-font-set="material-icons"  ng-style="{color:'purple' , 'font-size':'32px', height:'32px'}" >announcement </md-icon></md-tab-label>
+						    <md-tab-body>
+						     <div layout="column" layout-align="center center">
+						    <h1>Communication</h1>
+						    <div layout="row">
+						    	<img src="img/noticeboard.png">
+						    </div>
+						    </div>   
+						    </md-tab-body>
+						</md-tab>
+						<md-tab label="Records">
+						    <md-tab-label><md-icon md-font-set="material-icons"  ng-style="{color:'blue' , 'font-size':'32px', height:'32px'}" >people </md-icon></md-tab-label>
+						    <md-tab-body>
+						    <div layout="column" layout-align="space-around center">
+						    <h2> Manage Records </h2>
+						    	<img src="img/ManageRecord.png">
+						    </div>
+						    </md-tab-body>
+						</md-tab>
+						<md-tab label="Finance">
+						    <md-tab-label><md-icon md-font-set="material-icons"  ng-style="{color:'orange' , 'font-size':'32px', height:'32px'}" >attach_money </md-icon></md-tab-label>
+							<md-tab-body>
+						    <div layout="column" layout-align="space-around center">
+						    <h2> Finance </h2>
+						    	<img src="img/under-construction.png">
+						    </div>
+						    </md-tab-body>
+						</md-tab>
+		
+						<md-tab label="Poll">
+						    <md-tab-label><md-icon md-font-set="material-icons"  ng-style="{color:'purple' , 'font-size':'32px', height:'32px'}" >poll </md-icon></md-tab-label>
+							<md-tab-body>
+						    <div layout="column" layout-align="space-around center">
+						    <h2> Poll </h2>
+						    	<img src="img/under-construction.png">
+						    </div>
+						    </md-tab-body>
+						
+						</md-tab>
+						<md-tab label="Analyzer">
+						    <md-tab-label><md-icon md-font-set="material-icons"  ng-style="{color:'orange' , 'font-size':'32px', height:'32px'}" >trending_up </md-icon></md-tab-label>
+							<md-tab-body>
+						    <div layout="column" layout-align="space-around center">
+						    <h2> Anaylzer </h2>
+						    	<img src="img/under-construction.png">
+						    </div>
+						    </md-tab-body>
+						</md-tab>
+						<md-tab label="Records">
+						    <md-tab-label><md-icon md-font-set="material-icons"  ng-style="{color:'blue' , 'font-size':'32px', height:'32px'}" >business </md-icon></md-tab-label>
+							<md-tab-body>
+						    <div layout="column" layout-align="space-around center">
+						    <h2> Connect Communities </h2>
+						    	<img src="img/under-construction.png">
+						    </div>
+						    </md-tab-body>
+						</md-tab>
+		<md-tab label="Records">
+						    <md-tab-label><md-icon md-font-set="material-icons"  ng-style="{color:'green' , 'font-size':'32px', height:'32px'}" >settings_cell </md-icon></md-tab-label>
+							<md-tab-body>
+							    <div layout="column" layout-align="space-around center">
+							    <h2> On Mobile </h2>
+							    	<img src="img/under-construction.png">
+							    </div>
+						    </md-tab-body>				
+						</md-tab>
+		
+				</md-tabs>
+					</div>
+				</div>
+<!-----
+				<div layout="row" class="hitUsers" layout-padding layout-align="space-around center">
+					<div flex=null>
+					</div>
+					
+					<div class="hivecount" layout="column" layout-align="space-around center">
+						<md-icon md-font-set="material-icons"  ng-style="{color:'white' , 'font-size':'42px', height:'42px'}" >domain </md-icon>
+						<h1 style="color:white"> 1 </h1>
+						<h1 style="color:white"> Hive </h1>
+					</div>
+					
+					<div flex=null>
+					</div>
+
+					<div class="hivecount" layout="column" layout-align="space-around center">
+						<md-icon md-font-set="material-icons"  ng-style="{color:'white' , 'font-size':'42px', height:'42px'}" >person </md-icon>
+						<h1 style="color:white"> 3 </h1>
+						<h1 style="color:white"> Users </h1>
+					</div>
+					
+					<div flex=null>
+					</div>
+
+				</div>
+--->
+				<div flex="5%">
+				</div>
+				<md-card>
+				<md-card-content>
+				<div layout="row" class="contactUS" layout-padding>
+					<div  layout="column" layout-align="start start " layout-padding style="z-index: 1000 ">
+						
+					</div>
+					<div flex="80" style="z-index: 1000 ">
+												<img src="img/logo.png"  style="height:62px;width: 130px">
+						<div layout="row"  class="md-padding">
+							<md-icon md-font-set="material-icons"  ng-style="{color:'blue' , 'font-size':'18px', height:'18px'}" >drafts </md-icon>
+							<p flex="10%">Hiveintown@gmail.com</p>
+							
+						</div>
+
+						  	<h2 class="md-padding"> Create your own Hive !! Send your details </h2>
+						  	
+							    <form name="contactForm" >
+							      <div>
+								      <md-input-container>
+									  	<label>Name</label>
+									  	<input ng-model="notice.subject" name="Name" type="text" required md-maxlength="200" minlength="4">
+									  	<div ng-messages="noticeForm.subject.$error" ng-show="noticeForm.subject.$dirty">
+							      			<div ng-message="required">Required</div>
+							      			<div ng-message="md-maxlength">You have exceeded maximum length for this field.</div>
+							      			<div ng-message="minlength">You have not met this item's minimum length.</div>
+							   		    </div>
+									  </md-input-container>
+							        </div>
+							     
+							      <div>
+							        <md-input-container>
+							        <label>Email</label>
+							          <input ng-model="notice.details" name="request@dummy.com"  type="text" required  minlength="4">
+							          <div ng-messages="noticeForm.details.$error" ng-show="noticeForm.details.$dirty">
+							      			<div ng-message="required">Required</div>
+							      			<div ng-message="md-maxlength">You have exceeded maximum length for this field.</div>
+							      			<div ng-message="minlength">You have not met this item's minimum length.</div>
+							   		    </div>
+							        </md-input-container>
+							      </div>
+							      <div>
+							        <md-input-container>
+							        <label>Detail</label>
+							          <input ng-model="notice.details" name="details"  type="text" required  minlength="4">
+							          <div ng-messages="noticeForm.details.$error" ng-show="noticeForm.details.$dirty">
+							      			<div ng-message="required">Required</div>
+							      			<div ng-message="md-maxlength">You have exceeded maximum length for this field.</div>
+							      			<div ng-message="minlength">You have not met this item's minimum length.</div>
+							   		    </div>
+							        </md-input-container>
+							      </div>
+
+							      <div class="md-actions">
+									    <md-button class="md-primary md-raised" type="submit"  ng-disabled="contactForm.$invalid">
+									     	<p style="color:black;z-index:2000">Send</p>
+									    </md-button>
+								  	</div>
+							    </form>
+					</div>
+				</div>
+				</md-card-content>
+				</md-card>
+				<div layout="row">
+						<date flex="70">Updated: Sep 12, 2015   </date>
+						<date flex="20"> by Eikya Technologies </date>
+						<div layout="row" layout-align="space-around center" flex="10">
+							<p><a href="http://www.facebook.com/hiveintown/"><img ng-src="img/google.png" alt=""  style="border-radius:50% 50% 50% 50%;height:28px;width: 28px " class="md-avatar" />
+</a></p>
+<p><a href="http://www.facebook.com/hiveintown/"><img ng-src="img/fb.png" alt=""  style="border-radius:50% 50% 50% 50%;height:28px;width: 28px " class="md-avatar" />
+</a></p>
+					   	</div>
+				</div>
+
+        </md-content>
+  </md-content>
+
+
+</div>

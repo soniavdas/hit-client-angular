@@ -1,0 +1,118 @@
+<div layout="column" flex class="content-wrapper" id="primary-col">
+
+	<md-content class="md-padding " layout="column">   
+
+
+	   <ui-view flex ></ui-view>
+	   
+	   <div layout="row" layout-align="center center">
+	
+			<div layout="row" layout-align="space-between center">
+				<div layout="row">
+					<md-icon md-font-set="material-icons" ng-style="{color:'green' , 'font-size':'24px', height:'24px'}" >search</md-icon>
+					<input type="text" ng-model="searchText" placeholder="find serviceRequest"></input>
+				</div>
+				
+			</div>
+			<div layout="row" class="manage-list-filter" flex ng-show="serviceRequestList.length > 0">
+				<md-select ng-model="selectedFilter">
+					<md-option ng-value="" ng-selected>All</md-option>
+		   			<md-option ng-value="{{opt.id}}" ng-repeat="opt in filters">{{ opt.name }}</md-option>
+		   		</md-select> 
+		   			<div layout="row">
+			   			<md-icon md-font-set="material-icons" ng-style="{color:'blue' , 'font-size':'24px', height:'24px'}" >sort</md-icon>
+			   			<md-select ng-model="selectedSort" >
+				   			<md-option ng-value="" ng-selected>Sort</md-option>
+				   			<md-option ng-value="sort.key" ng-repeat="sort in sortCriterias">{{ sort.value }}</md-option>
+				   		</md-select> 
+		   			</div>
+		   	</div>
+			<div flex layout="row" layout-align="center center">
+				<div ng-if="filteredResults.length > 0">
+					Showing {{filteredResults.length}} records
+				</div>
+				<div ng-if="filteredResults.length == 0">
+					No results
+				</div>
+			</div>
+			
+				
+				
+			<div layout="row" class="manage-actions" ng-if="isAuthorized">
+				<md-button   class="md-raised md-primary md-fab" ng-click="edit($event, null)" aria-label="Add new serviceRequest">
+					<md-icon md-font-set="material-icons" ng-style="{color:'white' , 'font-size':'24px', height:'24px'}" >add</md-icon>
+					<md-tooltip>Add new serviceRequest</md-tooltip>
+				</md-button>
+			</div>
+		</div>
+		
+	
+		
+		<div class="manage-list-header" layout="row" layout-align="space-around start">
+			<div flex="40">
+				<h4 class="tableheader" align="center">Description</h4>
+			</div>
+			<div  flex="20">
+				<h4 class="tableheader">AssignedTo</h4>
+			</div>
+			<div  flex="5">
+				<h4 class="tableheader">Status</h4>
+			</div>
+			<div  flex="5">
+				<h4 class="tableheader">AptNum</h4>
+			</div>
+			<div  flex="10">
+				<h4 class="tableheader">Category</h4>
+			</div>
+			<div flex="5" ng-if="isAuthorized">
+				<p></p>
+			</div>
+		</div>
+				
+	    	<md-card>
+	    		<md-card-content>
+			    <md-list class="manage-list">
+			      	<md-item ng-repeat="serviceRequest in serviceRequestList | serviceRequestFilter:selectedFilter:this | filter:searchText | orderBy:selectedSort | offset:currentPage*pageLimit | limitTo:pageLimit as filteredResults">
+			        <md-item-content> 
+			        	<div><p ng-hide="filteredResults.length > 0">No records to display</p></div>
+						 <div layout="row" class="manage-row" layout-wrap ng-mouseenter="showBtns=true" ng-mouseleave="showBtns=false" style="height:35px">
+							 <img  ng-src="{{serviceRequest.statusUpdatedBy.profileUrl}}" alt="" style="border-radius:50% 50% 50% 50%;height:28px;width:28px " class="md-avatar" />
+
+							<p flex="40" class="tabletext">
+								<a href=""  ng-click="view($event, serviceRequest)">{{serviceRequest.subject}} </a>
+							</p>
+							<div flex="20">
+							<p ng-if="serviceRequest.statusId == 1">Draft</p>
+							<p ng-if="serviceRequest.statusId == 2">Posted</p>
+						 </div>
+						 <div flex="5">
+							<p ng-if="serviceRequest.statusId == 1"><md-icon md-font-set="material-icons" ng-style="{color:'blue' , 'font-size':'18px', height:'18px'}" >done </md-icon></p>
+						 </div>
+						 <div flex="10">
+						 	<p>{{serviceRequest.statusUpdatedBy}}</p>
+						 </div>
+						  <div flex="10">
+							<p>{{serviceRequest.dateStatusUpdated | date:"MMM dd, yyyy"}}</p>
+						 </div>
+						 <div flex="5" layout="row" ng-if="isAuthorized">
+						 	<md-button class="md-icon-button" aria-label="edit serviceRequest" ng-show="showBtns" ng-click="edit($event, serviceRequest)">
+							 	<md-icon md-font-set="material-icons" ng-style="{color:'blue' , 'font-size':'18px', height:'18px'}" >edit </md-icon>
+							 </md-button>
+							 
+							 							 
+							 <md-button class="md-icon-button" ng-click="deleteserviceRequest($event, serviceRequest, $index)"  
+							 		 aria-label="delete" ng-show="serviceRequest.statusId == 1 && showBtns">
+									<md-icon md-font-set="material-icons" ng-style="{color:'red' , 'font-size':'18px', height:'18px'}" >delete</md-icon>
+							 </md-button>
+						 </div>
+						  </div>					  
+			        </md-item-content>
+					<md-divider></md-divider>
+			      </md-item>
+			    </md-list>
+			  </md-card-content>
+			</md-card>
+  		</md-content>
+  		
+ </div>
+       

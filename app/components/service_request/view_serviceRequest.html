@@ -1,0 +1,42 @@
+<md-dialog aria-label="view notice" flex="70%">
+  <md-content class="md-padding">
+  		<div layout="column">
+  			<div class="md-title">{{serviceRequest.subject}}</div>
+  		    </br>
+  		     <md-card>
+  		    <md-card-content>
+					<div><span ng-bind-html=textserviceRequest ></span></div>
+	    		</md-card-content>
+  		    </md-card>
+
+  		    <md-card>
+	    		<md-card-content>
+	    		<div layout="column" class="md-primary">
+		    		<div layout="row">
+					<div flex="30">Reported On</div>
+					<div flex="15">Status</div>
+					<div flex="20">Category</div>
+					<div flex="20">AssignedTo </div>
+					<div flex="15">Reported By</div>
+		    		</div>
+	    		<div layout="row">
+					<div flex="30">{{serviceRequest.fromDate}}</div>
+					<div flex="15">{{serviceRequest.statusId}}</div>
+					<div flex="20">{{serviceRequest.categoryId}}</div>
+					<div flex="20">{{serviceRequest.noticeId}}</div>
+					<div flex="15">{{serviceRequest.noticeId}}</div>
+	    		</div>
+	    		</div>
+	    		</md-card-content>
+  		    </md-card>
+  		     		</div>
+  		
+    <div class="md-actions" layout="row">
+		 <div flex></div>     
+	     <md-button class="md-raised" ng-click="close()" type="button">
+	     <md-icon md-font-set="material-icons" ng-style="{color:'blue' , 'font-size':'24px', height:'24px'}" >close</md-icon>Close
+	    </md-button>
+  	</div>
+  </md-content>
+ </md-dialog>
+  

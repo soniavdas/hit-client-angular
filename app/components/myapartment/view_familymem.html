@@ -1,0 +1,39 @@
+<md-dialog aria-label="view resident">
+  <md-content class="md-padding">
+  
+  	<div layout="row">
+	  	
+	  	<div>
+		  	<md-card> 
+		  	<md-card-content>
+		  	<img ng-src="img/family.jpeg" style="height:64px;width: 64px " class="md-avatar" />
+		  	</md-card-content>
+		  	</md-card>
+	  	</div>
+	  	<div>
+	  		<section layout="row">
+	  			<div layout="column" flex="33" layout-margin>
+	  				<span layout-padding>Name</span>
+	  				<span layout-padding>Email</span>
+	  				<span layout-padding>Apartment</span>
+	  				<span layout-padding>Role</span>
+	  				<span layout-padding ng-show="user.isVerified">Status</span>
+	  			</div>
+	  			<div layout="column" flex layout-margin>
+	  				<span layout-padding>{{user.name}}</span>
+	  				<span layout-padding>{{user.email}}</span>
+	  				<span layout-padding>{{user.apartmentNum}}</span>
+	  				<span layout-padding>{{user.role}}</span>
+	  				<span layout-padding ng-show="user.isVerified">Active</span>
+	  			</div>
+	  		</section>
+	  	</div>
+  	</div>
+  	<md-divider></md-divider>
+    <div class="md-actions" layout="row">
+	     <md-button class="md-raised" ng-click="close()" type="button">
+	     	Close
+	    </md-button>
+  	</div>  </md-content>
+ </md-dialog>
+  

@@ -1,0 +1,47 @@
+<!--  <md-dialog aria-label="edit notice" flex="80%">
+  <md-content class="md-padding" flex="80%">
+  	
+  	<div layout="row">
+  		<h3 class="editwindowheader">Create/Edit Notice </h3>
+	</div>  --> 
+  	
+  	<div>{{message}}</div>
+    <form name="noticeForm">
+    <input type="hidden" name="noticeId" ng-value="notice.noticeId" />
+      <div>
+	      <md-input-container>
+		  	<label>Subject</label>
+		  	<input ng-model="notice.subject" name="subject" type="text" required md-maxlength="200" minlength="4">
+		  	<div ng-messages="noticeForm.subject.$error" ng-show="noticeForm.subject.$dirty">
+      			<div ng-message="required">Required</div>
+      			<div ng-message="md-maxlength">You have exceeded maximum length for this field.</div>
+      			<div ng-message="minlength">You have not met this item's minimum length.</div>
+   		    </div>
+		  </md-input-container>
+        </div>
+     
+      <div>
+        <md-input-container>
+          <input ng-model="notice.details" name="details" data-ck-editor type="text" required  minlength="4">
+          <div ng-messages="noticeForm.details.$error" ng-show="noticeForm.details.$dirty">
+      			<div ng-message="required">Required</div>
+      			<div ng-message="md-maxlength">You have exceeded maximum length for this field.</div>
+      			<div ng-message="minlength">You have not met this item's minimum length.</div>
+   		    </div>
+        </md-input-container>
+      </div>
+
+      <div class="md-actions" layout="row">
+	     <div flex></div>
+	   
+	    <md-button class="md-raised" type="submit" ng-click="add(1)" ng-disabled="noticeForm.$invalid" aria-label="Draft">
+	     	Save
+	     	<md-tooltip>Save as draft</md-tooltip>
+	    </md-button>
+	     <md-button class="md-raised" ng-click="close($event)" type="button" aria-label="Cancel">
+	     	Cancel
+	    </md-button>
+  	</div>
+    </form>
+ <!-- </md-content>
+  </md-dialog> -->

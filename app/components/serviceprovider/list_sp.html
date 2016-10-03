@@ -1,0 +1,116 @@
+<div layout="column" flex class="content-wrapper" id="primary-col">
+
+  
+   
+	<md-content class="md-padding " layout="column">   
+	   
+	   <ui-view flex ></ui-view>
+	   
+	   <div layout="row" layout-align="center center"  layout-sm="column">
+	
+			<div layout="row" layout-align="space-between center">
+				<div layout="row">
+					<md-icon ng-style="{color: 'green', 'font-size':'24px', height:'24px'}" >search</md-icon>
+					<input type="text" ng-model="searchText" placeholder="find ServiceProvider"></input>
+				</div>
+				
+			</div>
+			<div layout="row" class="manage-list-filter" flex ng-show="memberList.length > 0">
+				<md-select ng-model="selectedFilter">
+		   			<md-option ng-value="{{opt.id}}" ng-repeat="opt in filters" ng-selected="{{opt.id == 0}}">{{ opt.name }}</md-option>
+		   		</md-select> 
+			
+		   			<md-select ng-model="selectedSort" >
+			   			<md-option ng-value="" ng-selected>Sort</md-option>
+			   			<md-option ng-value="sort.key" ng-repeat="sort in sortCriterias">{{ sort.value }}</md-option>
+			   		</md-select> 
+		   	</div>
+			<div flex layout="row" layout-align="center center">
+				<div ng-if="filteredResults.length > 0">
+					Showing {{filteredResults.length}} records
+				</div>
+				<div ng-if="filteredResults.length == 0">
+					No results
+				</div>
+			</div>
+			
+				
+				
+			<div layout="row" class="manage-actions" ng-if="isAuthorized">
+				
+				<md-menu>
+			      <md-button aria-label="residents action menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">
+			        <md-icon md_menu_origin>more_vert</md-icon>
+			      </md-button>
+			      <md-menu-content width="3">
+			      	<md-menu-item>
+			            <md-button ng-click="toggleUpload()" aria-label="Upload residents data"> 
+			            	<md-icon  md-menu-align-target ng-style="{color:'blue'}">file_upload</md-icon>
+			            	Upload ServiceProvider data
+			            </md-button>
+			        </md-menu-item>
+			       <!--   <md-menu-item >
+			            <md-button ng-click="sendInvites($event)" aria-label="Send invites to residents"> 
+			            	<span md-menu-align-target>Send invites to join</span> 
+			            </md-button>
+			        </md-menu-item> -->
+			      </md-menu-content>
+		   		</md-menu>
+		   
+		   		<md-button  class="md-raised md-primary md-fab" ng-click="edit($event, null)" aria-label="Add new resident">
+					<md-icon ng-style="{color:'white' , 'font-size':'24px', height:'24px'}" >person_add</md-icon>
+					<md-tooltip>Add Service Provider</md-tooltip>
+				</md-button>
+			</div>
+		</div>
+		
+	
+		
+		<div class="manage-list-header" layout="row" layout-align="space-around start">
+			<div  flex align="center">
+				<h4>Name</h4>
+			</div>
+			<div  flex="30">
+				<h4>Contact</h4>
+			</div>
+			<div hide show-gt-md flex="30">
+				<h4>Status</h4>
+			</div>
+			<p flex="10" ng-if="isAuthorized"></p>
+		</div>
+						
+	    	<md-card>
+	    		<md-card-content>
+			    <div><p ng-if="!loading && memberList.length == 0">Community does not have any ServiceProviders. Add  or upload Service Provider data file.</p></div>
+			    <div infinite-scroll='loadMore()' infinite-scroll-distance='3' infinite-scroll-disabled="!scrollEnabled">
+			    <md-list class="manage-list" >
+			      	<md-item ng-repeat="user in scrollList | memberFilter:selectedFilter:this | filter:searchText | orderBy:selectedSort as filteredResults">
+			        <md-item-content > 
+						<div layout="row" flex layout-wrap ng-mouseenter="showBtns=true" ng-mouseleave="showBtns=false" style="height:35px">
+							<img ng-src="img/family.jpeg" style="border-radius:50% 50% 50% 50%;height:32px;width: 32px " class="md-avatar" />
+							<h4 flex>
+								<a href="" ng-click="view($event, user)">{{user.name}}</a>
+							</h4>
+							<p flex="30">{{user.apartmentNum}}</p>
+							<p ng-show="user.isVerified" flex="30" hide show-gt-md>Active</p>
+							<p ng-show="!user.isVerified" flex="30" hide show-gt-md>Pending</p>
+							<div layout="row"  ng-if="isAuthorized" flex="10">
+								<md-button class="md-icon-button" ng-click="edit($event, user, $index)"  aria-label="edit" ng-show="showBtns" >
+									<md-icon ng-style="{color: 'green', 'font-size':'18px', height:'18px'}" >edit</md-icon>
+								</md-button>
+								<md-button class="md-icon-button" ng-click="deleteUser($event, user, $index)"  aria-label="delete" ng-show="showBtns" ng-if="isAuthorized">
+									<md-icon ng-style="{color: 'red', 'font-size':'18px', height:'18px'}" >delete</md-icon>
+								</md-button>
+								
+							</div>
+						</div>
+						<md-divider></md-divider>
+			        </md-item-content>
+			      </md-item>
+			    </md-list>
+			    </div>
+			  </md-card-content>
+			</md-card>
+  		</md-content>
+ </div>
+       

@@ -1,0 +1,126 @@
+<div layout="column" flex class="content-wrapper" id="primary-col">
+
+  <md-tabs md-dynamic-height md-border-bottom md-selected="selectedIndex" flex>
+    <md-tab ng-repeat="tab in tabs" ng-disabled="tab.disabled" label="{{tab.title}}">
+   
+		<md-content class="md-padding " layout="column">   
+
+		   <md-card>
+		   <md-card-content>
+			   <div layout="row" layout-align="space-around center">
+			   <div> </div>
+			   <div flex="80">
+				<div  layout="row" layout-align="start start">
+							<p class="dashboardtext" flex>	<md-icon md-font-set="material-icons"   ng-style="{color:'purple' , 'font-size':'32px', height:'32px'}" >favorite</md-icon> 
+							&nbsp
+							Family</p>
+	    		</div>
+	    		<md-divider></md-divider>
+
+				    <md-content md-theme="docs-dark" layout-padding layout="row" layout-sm="column">
+					    <md-input-container>
+					      <label>Family Member Name</label>
+					      <input ng-model="user.title">
+					    </md-input-container>
+				    
+						<md-input-container>
+				          <label>Relation</label>
+				          <md-select ng-model="user.state">
+				            <md-option ng-repeat="state in states" value="{{state.abbrev}}">
+				              {{state.abbrev}}
+				            </md-option>
+				          </md-select>
+						</md-input-container>
+						<md-datepicker ng-model="user.submissionDate" md-placeholder="DOB"></md-datepicker>  
+					    
+					    <div  class="md-actions" layout="row">
+							<div flex=90> </div>
+							<div flex=20>
+									<md-icon md-font-set="material-icons" ng-click="CreateNotice=1" ng-style="{color:'black' , 'font-size':'32px', height:'24px'}" >add_box</md-icon>	
+							</div>	
+						</div>
+				    </md-content>
+ 		   		</div>
+ 		   		<div> </div>
+	   </div>
+	   
+	   
+	   <div layout="row" layout-align="space-around center">
+			<div> </div>
+			   <div flex="80">
+				 <div  layout="row" layout-align="start start">
+							<p class="dashboardtext" flex>	<md-icon md-font-set="material-icons"   ng-style="{color:'blue' , 'font-size':'32px', height:'32px'}" >motorcycle</md-icon> 
+							&nbsp
+							Vehicle</p>
+	    		</div>
+	    		<md-divider></md-divider>
+
+			   		<md-content md-theme="docs-dark" layout-padding layout="row" layout-sm="column">
+					    <md-input-container>
+					      <label>VehicleRegisterNumber</label>
+					      <input ng-model="user.title">
+					    </md-input-container>
+					    <md-input-container>
+					      <label>OwnerName</label>
+					      <input ng-model="user.title">
+					    </md-input-container>
+					    <md-radio-group ng-model="user.role" layout="row">
+					      <md-radio-button value="TwoWheel" >2Wheeler</md-radio-button>
+					      <md-radio-button value="FourWheel" >4Wheeler</md-radio-button>
+				   	 	</md-radio-group>
+
+					    <md-datepicker ng-model="user.submissionDate" md-placeholder="PurchaseDate"></md-datepicker>  
+					    	<div  class="md-actions" layout="row">
+							<div flex=90> </div>
+							<div flex=20>
+									<md-icon md-font-set="material-icons" ng-click="CreateNotice=1" ng-style="{color:'black' , 'font-size':'32px', height:'24px'}" >add_box</md-icon>	
+									
+							</div>	
+						</div>
+			   		</md-content>
+ 		   		</div>
+ 		   	<div> </div>
+	   </div>
+
+	   <div layout="row" layout-align="space-around center">
+			<div> </div>
+			 <div flex="80">
+			   	<div  layout="row" layout-align="start start">
+							<p class="dashboardtext" flex>	<md-icon md-font-set="material-icons"   ng-style="{color:'green' , 'font-size':'32px', height:'32px'}" >pets</md-icon> 
+							&nbsp
+							Pet</p>
+	    		</div>
+	    		<md-divider></md-divider>
+			   		<md-content md-theme="docs-dark" layout-padding layout="row" layout-sm="column">
+					    <md-input-container>
+					      <label>Name</label>
+					      <input ng-model="user.title">
+					    </md-input-container>
+					    <md-radio-group ng-model="user.role" layout="row">
+					      <md-radio-button value="Dog" >Dog</md-radio-button>
+					      <md-radio-button value="Cat" >Cat</md-radio-button>
+				   	 	</md-radio-group>
+
+					    <md-datepicker ng-model="user.submissionDate" md-placeholder="DOB"></md-datepicker>  
+					    	<div  class="md-actions" layout="row">
+							<div flex=90> </div>
+							<div flex=20>
+									<md-icon md-font-set="material-icons" ng-click="CreateNotice=1" ng-style="{color:'black' , 'font-size':'32px', height:'24px'}" >add_box</md-icon>	
+									
+							</div>	
+						</div>
+			   		</md-content>
+ 		   </div>
+	     <div> </div>
+	   </div>
+	</div>
+	<div> </div>
+</div>
+	   </md-card-content>
+	   </md-card>
+  		</md-content>
+  		
+  	  </md-tab>
+  </md-tabs>
+ </div>
+       

@@ -1,0 +1,25 @@
+
+<div layout="column" layout-align="center center" flex>
+
+	<h3>Resend invitation</h3>
+	<p>{{message}}</p>
+	 <form name="resendLinkForm" ng-submit="resend(email)">
+      <div layout layout="column">
+	       <md-input-container flex>
+          <input ng-model="email" type="email" placeholder="Enter email" required md-maxlength="50" minlength="4">
+          <div ng-messages="email.$error" ng-show="resendLinkForm.bio.$dirty">
+      			<div ng-message="required">This is a required field.</div>
+      			<div ng-message="md-maxlength">You have exceeded maximum length for this field.</div>
+      			<div ng-message="minlength">You have not met this item’s minimum length.</div>
+      			<div ng-message="email">Please enter a valid email address.</div>
+   		    </div>
+        </md-input-container>
+      </div>
+        <div class="md-actions" layout="row">
+		    <md-button class="md-primary md-raised" type="submit">
+		     	Resend Invite
+		    </md-button>
+  		</div>
+    </form>
+</div>
+

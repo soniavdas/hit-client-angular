@@ -1,0 +1,86 @@
+<md-dialog aria-label="edit poll" flex="60%">
+  <md-content class="md-padding" flex="60%">
+  	
+  	<div layout="row">
+  		<h3 class="editwindowheader">Create/Edit poll </h3>
+	</div>   
+  	
+  	  	<div>{{message}}</div>
+    <form name="pollForm">
+    <input type="hidden" name="pollId" ng-value="poll.pollId" />
+      <div>
+	      <md-input-container>
+		  	<label>Subject</label>
+		  	<input ng-model="poll.subject" name="subject" type="text" required md-maxlength="50" minlength="4">
+		  	<div ng-messages="pollForm.subject.$error" ng-show="pollForm.subject.$dirty">
+      			<div ng-message="required">Required</div>
+      			<div ng-message="md-maxlength">You have exceeded maximum length for this field.</div>
+      			<div ng-message="minlength">You have not met this item's minimum length.</div>
+   		    </div>
+		  </md-input-container>
+        </div>
+     
+       <div layout="row">
+           <md-input-container>
+          <label>Options</label>
+          <input ng-model="polloption" type="text" placeholder="Options" required minlength="1" md-maxlength="10">
+          <div ng-messages="pollForm.options.$error" ng-show="pollForm.bio.$dirty" >
+      			<div ng-message="required">This is a required field.</div>
+      			<div ng-message="md-maxlength">You have exceeded maximum length for this field.</div>
+      			<div ng-message="minlength">You have not met this item’s minimum length.</div>
+   		    </div>
+        </md-input-container>
+            <p>
+	            <md-icon md-font-set="material-icons" ng-style="{color:'blue' , 'font-size':'24px', height:'24px'}" ng-click="addItem()">add <md-tooltip>Add option</md-tooltip></md-icon>
+
+					 <md-icon md-font-set="material-icons" ng-style="{color:'blue' , 'font-size':'24px', height:'24px'}" ng-click="removeItem()">remove<md-tooltip>remove option</md-tooltip></md-icon>
+    </p>
+      </div>
+            <div>
+	      <md-input-container>
+		  	<label>ValidTill</label>
+		  	<input ng-model="poll.subject" name="subject" type="date">
+		  	<div ng-messages="pollForm.subject.$error" ng-show="pollForm.subject.$dirty">
+      			<div ng-message="required">Required</div>
+    		    </div>
+		  </md-input-container>
+        </div>
+
+     <md-card>
+      <md-content>
+		<div>
+		  <form ng-submit="submit()">
+		     <p> <span class="radioValue"> </span></p>
+		    <md-radio-group ng-model="data.group2" class="md-primary" layout="row">
+		        <md-radio-button ng-repeat="d in pollOptions"
+		                         ng-value="d.value"
+		                         ng-disabled=" d.isDisabled ">
+		            {{ d.label }}
+		        </md-radio-button>
+		    </md-radio-group>
+		    </form>
+		</div>
+      </md-content>
+      </md-card>
+
+    <div class="md-actions" layout="row">
+		<md-button class="md-primary md-raised" ng-click="add(poll, 2)" type="submit" 
+	    			ng-disabled="pollForm.$invalid" aria-label="Post">
+	    			<md-icon md-font-set="material-icons" ng-style="{color:'green' , 'font-size':'24px', height:'24px'}" >local_post_office</md-icon>Post 
+	     	<md-tooltip>Publish poll Now</md-tooltip>
+	    </md-button>
+	             
+	     <div flex></div>
+	   
+	    <md-button class="md-raised" type="submit" ng-click="add(poll, 1)" 
+	    		ng-disabled="pollForm.$invalid" aria-label="Draft">
+	     	Save
+	     	<md-tooltip>Save as draft</md-tooltip>
+	    </md-button>
+	     <md-button class="md-raised" ng-click="close()" type="button" aria-label="Cancel">
+	     	Cancel
+	    </md-button>
+  	</div>
+    </form>
+  </md-content>
+  </md-dialog>

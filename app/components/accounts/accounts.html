@@ -1,0 +1,106 @@
+<div layout="column" flex class="content-wrapper" id="primary-col">
+
+  <md-tabs md-dynamic-height md-border-bottom md-selected="selectedIndex" flex>
+    <md-tab ng-repeat="tab in tabs"
+            ng-disabled="tab.disabled"
+            label="{{tab.title}}">
+  
+   
+	<md-content class="md-padding " layout="column">   
+	   <div layout="row" layout-align="center center">
+		   	<p flex="20">Total residents: {{total}}</p>
+		   	<p flex="20">Active: {{totalActive}}</p>
+		   	<p flex="20">Pending: {{totalPending}}</p>
+		   	<p flex="20">Admins: {{totalAdmins}}</p>  
+		   	<p flex="20">Residents: {{totalResidents}}</p>  
+	   </div>	
+	   
+	   <ui-view flex ></ui-view>
+	   
+	   <div layout="row" layout-align="center center">
+	
+			<div layout="row" layout-align="space-between center">
+				<div layout="row">
+					<md-icon md-svg-src="img/md/svg/ic_search_24px.svg"></md-icon>
+					<input type="text" ng-model="searchText" placeholder="find residents"></input>
+				</div>
+				
+			</div>
+			<div layout="row" class="manage-list-filter" flex ng-show="memberList.length > 0">
+				<md-select ng-model="selectedFilter">
+		   			<md-option ng-value="{{opt.id}}" ng-repeat="opt in filters" ng-selected="{{opt.id == 0}}">{{ opt.name }}</md-option>
+		   		</md-select> 
+			
+		   			<md-select ng-model="selectedSort" >
+			   			<md-option ng-value="" ng-selected>Sort</md-option>
+			   			<md-option ng-value="sort.key" ng-repeat="sort in sortCriterias">{{ sort.value }}</md-option>
+			   		</md-select> 
+		   	</div>
+			<div flex layout="row" layout-align="center center">
+				<div ng-show="filteredResults.length > 0">
+					Displaying {{startRow}} - {{endRow}}
+				</div>
+				<md-button  class="md-primary"  ng-disabled="prevDisabled" ng-click="getPrev()" aria-label="PREV" >
+					<md-icon md-svg-src="img/md/svg/ic_chevron_left_24px.svg"></md-icon>
+				</md-button>
+				<md-button  class="md-primary"  ng-disabled="nextDisabled" ng-click="getNext()"  aria-label="NEXT">
+					<md-icon md-svg-src="img/md/svg/ic_chevron_right_24px.svg"></md-icon>
+				</md-button>
+			</div>
+			
+				
+				
+			<div layout="row" class="manage-actions">
+				<md-button  class="md-raised md-primary md-fab" ng-click="toggleEdit()" aria-label="Add new resident">
+					<md-icon md-svg-src="img/md/svg/ic_person_add_24px.svg"></md-icon>
+					<md-tooltip>Add new resident</md-tooltip>
+				</md-button>
+				
+				<md-button class="md-fab" ng-click="toggleUpload()" aria-label="Upload resident data">
+					<md-tooltip>Upload resident data</md-tooltip>
+					<md-icon md-svg-src="img/md/svg/ic_file_upload_24px.svg"></md-icon>
+				</md-button>
+			</div>
+		</div>
+		
+	
+		
+		<div class="manage-list-header" layout="row" layout-align="space-around start">
+			<p>Name</p>
+			<p>Apartment</p>
+			<p>Status</p>
+			<p></p>
+		</div>
+				
+	    	<md-card>
+	    		<md-card-content>
+			    <div><p ng-show="memberList.length == 0">Community does not have any residents. Add residents or upload residents data file.</p></div>
+			    <md-list class="manage-list">
+			      	<md-item ng-repeat="mem in memberList | memberFilter:selectedFilter:this | filter:searchText | orderBy:selectedSort | offset:currentPage*pageLimit | limitTo:pageLimit as filteredResults">
+			        <md-item-content> 
+			        	<div><p ng-hide="filteredResults.length > 0">No records to display</p></div>
+						 <div layout="row" class="manage-row" flex layout-wrap>
+							<h3 flex>
+								{{mem.name}}
+								<md-icon md-svg-src="img/md/svg/ic_star_24px.svg" ng-show="mem.role == 'ADMIN'" style="width:16px;height:16px"></md-icon>
+							</h3>
+							<p flex>{{mem.apartmentNum}}</p>
+							<p ng-show="mem.isVerified" flex>Active</p>
+							<p ng-show="!mem.isVerified" flex>Pending</p>
+							<p>	<a href="" ng-click="editUser(mem.userId)"  aria-label="edit">
+									<md-icon md-svg-src="img/md/svg/ic_mode_edit_18px.svg" style="width:16px;height:16px"/>
+								</a>
+							</p>
+						  </div>					  
+			        </md-item-content>
+					<md-divider></md-divider>
+			      </md-item>
+			    </md-list>
+			  </md-card-content>
+			</md-card>
+  		</md-content>
+  		
+  	  </md-tab>
+  </md-tabs>
+ </div>
+       

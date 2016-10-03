@@ -1,0 +1,113 @@
+<div layout="column" flex class="content-wrapper" id="primary-col">
+
+	<md-content class="md-padding " layout="column" style="background-color: #e3e4e7">   
+
+	   <ui-view flex ></ui-view>
+	   
+	   <div layout="row" layout-align="center center" layout-sm="column" >
+			<div>
+				<md-icon md-font-set="material-icons" ng-style="{color:'md-primary' , 'font-size':'24px', height:'24px'}" >search</md-icon>
+				<input type="text" ng-model="searchText" placeholder="find notice" ng-style="{width:'400px'}"></input>
+			</div>
+			
+			<div flex="30" layout="row" layout-align="center center" layout-padding class="manage-list-filter"  ng-show="noticeList.length > 0">
+				<md-select ng-model="selectedFilter" aria-label="select filter">
+					<md-option ng-value="" ng-selected>All</md-option>
+		   			<md-option ng-value="{{opt.id}}" ng-repeat="opt in filters">{{ opt.name }}</md-option>
+		   		</md-select> 
+	   			<md-select ng-model="selectedSort" aria-label="select sort">
+		   			<md-option ng-value="" ng-selected>Sort</md-option>
+		   			<md-option ng-value="sort.key" ng-repeat="sort in sortCriterias">{{ sort.value }}</md-option>
+		   		</md-select> 
+		   	</div>
+		   	
+		   	<div flex="15">
+				<div ng-if="filteredResults.length > 0">
+					<h4> {{filteredResults.length}} / {{noticeList.length}} </h4>
+				</div>
+				<div ng-if="filteredResults.length == 0">
+					No results
+				</div>
+
+			</div>				
+
+			<div flex  class="manage-actions" ng-if="isAuthorized" layout="row" layout-align="end center">
+				<md-button  class="md-raised md-primary md-fab" ng-click="edit($event, null, -1)" aria-label="Add new notice">
+					<md-icon md-font-set="material-icons" ng-style="{color:'white' , 'font-size':'24px', height:'24px'}" >add</md-icon>
+					<md-tooltip>Add new notice</md-tooltip>
+				</md-button>
+			</div>
+		</div>
+		
+		<div id="edit-placeholder-1"></div> 
+		
+		  <md-card>
+		       <div ng-show="loading">Loading...</div>
+		        <div infinite-scroll='loadMore()' infinite-scroll-distance='3' infinite-scroll-disabled="!scrollEnabled">
+			    <md-list class="nb-manage-list">
+			      	<md-item ng-repeat="notice in noticeList | noticeFilter:selectedFilter:this | filter:searchText | orderBy:selectedSort as filteredResults track by notice.noticeId">
+					     <md-item-content> 
+					        	<div><p ng-if="filteredResults.length == 0">No records to display</p></div>
+									 <div layout="column"   class="nb-manage-row"  ng-class="{notice_expand:notice.noticeId == selectedNoticeId, notice_collapse:notice.noticeId != selectedNoticeId}" ng-mouseenter="showBtns=true" ng-mouseleave="showBtns=false" >
+											     <div layout="row" class="noticelist" ng-class="{notice_hover:showBtns}">
+												        <div flex="70" layout="row" layout-align="start center"  class="pointer" 
+												                    ng-click="toggleDetails(notice, $index)">
+													        <img  ng-src="{{notice.statusUpdatedBy.profileUrl}}" alt="" style="border-radius:50% 50% 50% 50%;height:28px;width:28px " class="md-avatar" />
+													        
+													            <span  ng-hide="notice.noticeId == selectedNoticeId" class="nb-subject">{{notice.subject | limitTo: 50 }}{{notice.subject.length > 20 ? '...' : ''}}</span>
+													            <span  ng-show="notice.noticeId == selectedNoticeId" class="nb-subject">{{notice.subject}}</span>
+
+													            <span >&nbsp; &nbsp;</span>
+													            <span flex ng-hide="notice.noticeId == selectedNoticeId" class="nb-detail" ng-bind-html="notice.details | limitTo:50 |sanitize"></span>
+												         
+												            												            
+												        </div>
+												        <div flex="5" layout-align="space-around center" layout="row">
+													        <span  class="g6" ng-show="notice.comments.length > 0">({{notice.comments.length}}) </span>
+
+													        <md-icon md-font-set="material-icons" ng-if="isAuthorized" ng-show="notice.statusId == 1" ng-style="{color:'blue' , 'font-size':'18px', height:'18px'}" >drafts </md-icon>
+														   	<md-icon md-font-set="material-icons" ng-if="isAuthorized" ng-show="notice.statusId == 2" ng-style="{color:'blue' , 'font-size':'18px', height:'18px'}" >done </md-icon>
+												        </div>
+												        
+												        <div layout="row" layout-align="space-around center">
+												            
+												            <span class="nb-detail" >{{notice.statusUpdatedBy.name}} &nbsp</span> 
+														    <span class="nb-detail" >{{notice.dateStatusUpdated | date:"MMM dd, yyyy"}}</span> 
+														    
+														</div>
+													 
+													 <div ng-if="isAuthorized"  layout="row" ng-show="showBtns">
+														<md-button class="md-icon-button" aria-label="edit notice"  ng-click="edit($event, notice, $index)" ng-show="notice.noticeId == selectedNoticeId">
+															<md-icon md-font-set="material-icons" ng-style="{color:'blue' , 'font-size':'18px', height:'18px'}" >edit </md-icon>
+															<md-tooltip ng-if="notice.statusId == 2">Copy and create a new notice</md-tooltip>
+														</md-button>
+														<md-button class="md-icon-button"  ng-click="deleteNotice($event, notice, $index)"  aria-label="delete" ng-show="notice.statusId == 1" >
+															<md-icon md-font-set="material-icons" ng-style="{color:'red' , 'font-size':'18px', height:'18px'}" >delete</md-icon>
+														</md-button>
+														<md-button class="md-icon-button"  ng-click="publishNotice($event, notice, $index)"  aria-label="publish" ng-show="notice.statusId == 1" >
+                                                            <md-icon md-font-set="material-icons" ng-style="{color:'green' , 'font-size':'18px', height:'18px'}" >local_post_office</md-icon>
+                                                            <md-tooltip>Publish</md-tooltip>
+                                                        </md-button>
+													</div>
+										      </div>
+											<div layout="column" class="noticecomment" ng-show="notice.noticeId == selectedNoticeId">
+												<div ng-attr-id="{{'edit-placeholder' + $index}}" ></div> 
+												<div layout="column" class="noticeBox" layout-align="center center">
+												    <div flex ng-attr-id="{{'notice-placeholder' + notice.noticeId}}" ></div>
+												</div>
+											    <div  ng-attr-id="{{'comments-placeholder' + notice.noticeId}}"></div>
+											</div>									
+								  </div>			
+				            <md-divider ng-if="!$last"></md-divider>
+			      	   </md-item-content>
+			       </md-item>
+			    </md-list>
+			    </div>
+            </md-card>
+  		</md-content>
+  		
+ </div>
+ 
+ 
+ 
+       

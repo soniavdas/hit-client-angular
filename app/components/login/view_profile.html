@@ -1,0 +1,34 @@
+<md-dialog aria-label="view notice">
+  <md-content class="md-padding">
+   <div layout = "row">
+	<div>
+		 			  <img ng-src={{profilepic}}>
+ 		</div>
+
+	  	<div layout = "column">
+	  	<div>
+	  	  	<p class="viewcontent"> <span> {{currentUser.displayName}} </span></p> 
+   			 <p class="viewcontent"> <span> {{currentUser.email}} </span> </p>
+ 		</div>
+	 </div>
+   </div>
+        <md-checkbox ng-checked="unsubscribedComments" class="md-align-top-left" ng-click="toggleComments()">
+            Unsubscribe to only comments
+        </md-checkbox>
+        <md-checkbox ng-checked="unsubscribedAll" class="md-align-top-left" ng-click="toggleAll()">
+            Unsubscribe to all notifications
+        </md-checkbox>
+
+ 	<md-divider > </md-divider>
+    <div class="md-actions" layout="row">
+	     <md-button class="md-raised" ng-click="close()" type="button">
+	     	Close
+	    </md-button>
+	     <md-button class="md-raised" ng-click="logout()" type="button">
+	     	Logout
+	    </md-button>
+
+  	</div>
+  </md-content>
+ </md-dialog>
+  

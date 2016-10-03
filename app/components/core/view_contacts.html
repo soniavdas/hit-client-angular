@@ -1,0 +1,32 @@
+<md-dialog aria-label="view contacts" flex="50%">
+<div>
+  <md-content>
+    <md-list>
+      <md-list-item class="md-3-line" ng-repeat="item in contacts">
+        <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}" />
+        <div class="md-list-item-text" layout="row">
+	         <div flex="30">
+          <h4>{{ item.name }}</h3>
+	         </div>
+	          <div flex="40">
+          <h4>{{ item.role }}</h4>
+	          </div>
+	           <div flex="20">
+          <h4>{{ item.contact }}</p>
+	           </div>
+        </div>
+      </md-list-item>
+    </md-list>
+   
+    	<md-divider > </md-divider>
+    <div class="md-actions" layout="row">
+	     <md-button class="md-raised" ng-click="close()" type="button">
+	     	Close
+	    </md-button>
+  	</div>
+  </md-content>
+  
+
+</div>
+ </md-dialog>
+  

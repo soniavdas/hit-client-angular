@@ -1,0 +1,51 @@
+
+<div layout="column" layout-align="center center">
+	<div class="welcomeText">
+		<h2>{{welcomeText}}</h2>
+	</div>
+	
+	<div class="{{messagetype}}"  layout="row">
+		<p layout-align="center center">{{message}} </p>
+	</div>
+	
+	<div ng-show="showResend" class="warning" layout="row">
+			<md-icon md-font-set="material-icons" ng-style="{color: 'orange', 'font-size':'36px', height:'36px'}" >warning</md-icon>
+		<h4>If you are signing in with a different social login than before, you will have to click on your invitation link and then sign in. Click here to <a href="" ng-click="resend()">resend</a> invitation link. </h4>
+	</div>
+	
+	<div layout="column" layout-align="center center" flex>
+	
+	<!--  	<div layout="row" ng-hide='isLoggedIn' flex="50">
+			<div id="my-signin2"></div>
+			<div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="false"></div>
+		</div> -->
+
+		
+		<div layout="row" ng-hide='isLoggedIn' layout-align="space-around center" >
+			<md-button class="md-raised login-button" ng-click="doGoogleLogin()" ng-show="showGplus">
+			<div layout-align="space-around center" layout="row" >
+			<img alt="Login" src="img/google.png"> &nbsp Login
+			</div>
+			</md-button>
+			
+			<md-button class="login-button md-raised"  ng-click="doFbLogin()" ng-show="showFb">
+			 <div layout-align="space-around center" layout="row">
+			     <img alt="Login" src="img/fb.png"> &nbsp Login 
+			 </div>
+			</md-button>
+		</div>
+		<md-card>
+ 			<md-card-content>
+				<div>
+					<img src="img/hitprofile/sterling.jpg"/ height="100%" width="100%">
+				</div>	
+	 		</md-card-content>
+		</md-card>
+		    
+        
+		
+		
+	</div>
+	
+</div>
+

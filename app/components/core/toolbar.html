@@ -1,0 +1,17 @@
+ <md-toolbar layout="row" >
+   <div class="md-toolbar-tools" >
+	   
+        <span flex></span>
+     		<h1>{{communityName}}</h1>   		
+   		<span flex></span>
+
+		<div class="account-options">
+			<md-select ng-model="selection" ng-show="isLoggedIn">
+				<md-option ng-selected ng-value="0">{{currentUser.displayName}}</md-option>
+				<md-option ng-value="1">{{currentUser.email}}</md-option>
+				<md-option ng-value="2">Logout</md-option>
+			</md-select>
+		</div>
+</md-toolbar>			
+					
+					
